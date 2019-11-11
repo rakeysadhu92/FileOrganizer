@@ -19,7 +19,7 @@ logger.setLevel(logging.DEBUG)
 formatter = logging.Formatter('%(asctime)s %(name)s %(levelname)s %(message)s')
 
 #creating a file handler
-fh = logging.FileHandler('imagemove.log')
+fh = logging.FileHandler('/Users/rakeshsadu/Documents/Gitprojects/RajaPersonalProjects/LOGGING/imagemove.log')
 fh.setLevel(logging.DEBUG)
 fh.setFormatter(formatter)
 
@@ -28,7 +28,8 @@ logger.addHandler(fh)
 #config parser setup
 config = configparser.ConfigParser()
 #reading the config file from the following location
-config.read('/Users/rakeshsadu/Documents/Gitprojects/RajaPersonalProjects/FileOrganizer/imagemove.ini')
+script_location = os.path.dirname(os.path.realpath(__file__))
+config.read(script_location+'/imagemove.ini')
 
 #Atributes that are take from the config file imagemove.ini from DEFAULT stanza
 src = config.get('DEFAULT','source')
